@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Users
+{% endblock %}
+
+{% block header %}
+    <h1>Users</h1>
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            {% if users %}
+                {% for user in users %}
+                    <article class="col-lg-4">
+                        {% include 'user/user.html' %}
+                    </article>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    {{ block.super }}
+{% endblock %}

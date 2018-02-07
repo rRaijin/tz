@@ -1,0 +1,9 @@
+{% load static %}
+
+{% if post %}
+    <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+    <p>{{ post.get_short_text }}</p>
+    <p>{{ post.created_date }}</p>
+    <p>{{ post.updated_date }}</p>
+    <p>{{ post.author }}</p>
+{% endif %}

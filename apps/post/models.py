@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.urls import reverse
 
 
 class Post(models.Model):
@@ -15,6 +16,9 @@ class Post(models.Model):
 
     def get_short_text(self):
         return self.text[:100]
+
+    def get_absolute_url(self):
+        return reverse('post:detail', kwargs={'id': self.id})
 
     class Meta:
         verbose_name_plural = 'Posts'
