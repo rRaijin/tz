@@ -8,16 +8,25 @@ from .forms import PostCreateForm
 from .models import Post
 
 
-class UserList(ListView):
+class RequireAuthMixin:
+    def get(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return super().get(request, *args, **kwargs)
+        else:
+            raise Http404
+
+
+class UserList(RequireAuthMixin, ListView):
     model = User
     context_object_name = 'users'
     template_name = 'user/user-list.html'
     paginate_by = 4
 
 
-class UserDetail(DetailView):
+class UserDetail(RequireAuthMixin, DetailView):
     model = User
     template_name = 'user/user-detail.html'
+    context_object_name = 'user'
     pk_url_kwarg = 'id'
 
     def get_context_data(self, **kwargs):
@@ -26,7 +35,7 @@ class UserDetail(DetailView):
         return context
 
 
-class PostsList(ListView):
+class PostsList(RequireAuthMixin, ListView):
     model = Post
     context_object_name = 'posts'
     template_name = 'post/post-list.html'
@@ -38,23 +47,17 @@ class PostsList(ListView):
         return queryset
 
 
-class PostDetail(DetailView):
+class PostDetail(RequireAuthMixin, DetailView):
     model = Post
     template_name = 'post/post-detail.html'
     pk_url_kwarg = 'id'
 
 
-class PostCreate(CreateView):
+class PostCreate(RequireAuthMixin, CreateView):
     model = Post
     form_class = PostCreateForm
     template_name = 'post/post-create.html'
     pk_url_kwarg = 'id'
-
-    def get(self, request, *args, **kwargs):
-        if request.user.is_authenticated:
-            return super().get(request, *args, **kwargs)
-        else:
-            raise Http404
 
     def post(self, request, *args, **kwargs):
         if request.user.is_authenticated:
@@ -105,7 +108,7 @@ class PostDelete(DeleteView):
 
     def delete(self, request, *args, **kwargs):
         self.object = self.get_object()
-        if request.user == self.object.author or request.user.is_staff:
+        if request.user.is_staff:
             self.object.delete()
             return redirect('post:list')
         else:

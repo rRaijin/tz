@@ -6,11 +6,18 @@
 {% endblock %}
 
 {% block header %}
-    <h1>Posts</h1>
+    {{ block.super }}
 {% endblock %}
 
 {% block content %}
     <div class="container-fluid">
+        <div class="row">
+            {% if request.user.is_authenticated %}
+                    <a href="{% url 'post:create' %}" class="create-post">Create post</a>
+            {% else %}
+                <p>To add recordings you need to register  <a href="#">registration</a></p>
+            {% endif %}
+        </div>
         <div class="row">
             {% if posts %}
                 {% for post in posts %}

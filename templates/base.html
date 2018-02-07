@@ -11,8 +11,6 @@
     </title>
     <link rel="stylesheet" href="{% static 'src/bootstrap/bootstrap-3.3.7.min.css' %}">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400" rel="stylesheet">
-{#    <link rel="stylesheet" href="{% static 'src/bxslider/jquery.bxslider.min.css' %}">#}
-    <link rel="stylesheet" href="{% static 'src/animations/fm.revealator.jquery.css' %}">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
 </head>
 
@@ -21,23 +19,33 @@
     <form id="csrf_getting_form" action="">{% csrf_token %}</form>
 
     {% block header %}
+        <header>
+            <h1>Header block</h1>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="/blog/">Home</a>
+                    </li>
+                    <li>
+                        <a href="/blog/users/">Authors</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
     {% endblock header %}
 
     {% block content %}
     {% endblock content %}
 
     {% block footer %}
+        <footer>
+            <h1>Footer block</h1>
+        </footer>
     {% endblock footer %}
 
     <!-- Sources -->
     <script src="{% static 'src/jquery-3.2.1.js' %}"></script>
-{#    <script src="{% static 'src/bxslider/jquery.bxslider.min.js' %}"></script>#}
     <script src="{% static 'src/bootstrap/bootstrap-3.3.7.min.js' %}"></script>
-    <script src="{% static 'src/animations/fm.revealator.jquery.js' %}"></script>
-    <!-- CDN VueJS -->
-{#    <script src="https://cdn.jsdelivr.net/npm/vue"></script>#}
-{#    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.0.1/vue-router.js"></script>#}
-    <!-- All Vue files, AJAX, and other scripts -->
     <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

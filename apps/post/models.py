@@ -15,7 +15,7 @@ class Post(models.Model):
         return self.title
 
     def get_short_text(self):
-        return self.text[:100]
+        return '%s...' % self.text[:100]
 
     def get_absolute_url(self):
         return reverse('post:detail', kwargs={'id': self.id})

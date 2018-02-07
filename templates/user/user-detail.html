@@ -6,18 +6,39 @@
 {% endblock %}
 
 {% block header %}
-    <h1>{{ user.username }}</h1>
+    {{ block.super }}
 {% endblock %}
 
 {% block content %}
     <div class="container-fluid">
         <div class="row">
             {% if user %}
-                {{ user.username }}
+                <article class="col-lg-4 col-lg-offset-4 user-detail post-wrapper">
+                    <h3>Author {{ user.username }}</h3>
+                    <ul>
+                        {% if posts %}
+                        {% for post in posts %}
+                            <li>
+                                <h5>{{ post.title }}</h5>
+                                <p class="text">
+                                    {{ post.get_short_text }}
+                                    <a href="{{ post.get_absolute_url }}">more</a>
+                                </p>
+
+                                {% if post.created_data == post.updated_data %}
+                                    <p class="date">created at {{ post.created_date }}</p>
+                                {% else %}
+                                    <p class="date">updated at {{ post.updated_date }}</p>
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                        {% else %}
+                            <p>This author has no publications</p>
+                        {% endif %}
+                    </ul>
+
+                </article>
             {% endif %}
-            {% for post in posts %}
-                {{ post.title }}
-            {% endfor %}
         </div>
     </div>
 {% endblock %}

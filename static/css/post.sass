@@ -1,0 +1,51 @@
+//styles for post list and post detail page
+.post-wrapper
+  margin-top: 10px
+  padding: 10px
+  background-color: $post-wrapper-bgc
+  border: 2px solid $post-wrapper-border
+  border-radius: 5px
+
+  h2
+    font-weight: bold
+    border-bottom: 1px solid rgba(193, 179, 179, .7)
+    &:first-letter
+      text-transform: uppercase
+
+  p:last-of-type
+    color: $p-author-c
+    font: $p-author-f
+    a
+      color: black
+      text-decoration: none
+      cursor: pointer
+      font: $p-author-f
+      &:hover
+        color: red
+
+
+  .post-edit-panel
+    margin-left: 10px
+    list-style-type: none
+    float: right
+    clear: both
+    li
+      float: left
+      margin-left: 5px
+
+.text
+    text-align: justify
+    &:first-letter
+      text-transform: uppercase
+      font: $p_text-f
+      color: $p_text-c
+    a
+      color: $p-text-a-c
+      font: $p_text-a-f
+      text-decoration: none
+      cursor: pointer
+      &:hover
+        color: $link-color-h
+
+.date
+  text-align: right

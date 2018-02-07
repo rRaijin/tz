@@ -1,0 +1,371 @@
+/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
+/**
+ * 1. Change the default font family in all browsers (opinionated).
+ * 2. Correct the line height in all browsers.
+ * 3. Prevent adjustments of font size after orientation changes in
+ *    IE on Windows Phone and in iOS.
+ */
+/* Document ========================================================================== */
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0; }
+
+article,
+aside,
+footer,
+header,
+nav,
+section {
+  display: block; }
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0; }
+
+figcaption,
+figure,
+main {
+  display: block; }
+
+figure {
+  margin: 1em 40px; }
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible; }
+
+pre {
+  font-family: monospace, monospace;
+  font-size: 1em; }
+
+a {
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects; }
+
+a:active,
+a:hover {
+  outline-width: 0; }
+
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline;
+  text-decoration: underline dotted; }
+
+b,
+strong {
+  font-weight: inherit; }
+
+b,
+strong {
+  font-weight: bolder; }
+
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em; }
+
+dfn {
+  font-style: italic; }
+
+mark {
+  background-color: #ff0;
+  color: #000; }
+
+small {
+  font-size: 80%; }
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sub {
+  bottom: -0.25em; }
+
+sup {
+  top: -0.5em; }
+
+audio,
+video {
+  display: inline-block; }
+
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+img {
+  border-style: none; }
+
+svg:not(:root) {
+  overflow: hidden; }
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: sans-serif;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0; }
+
+button,
+input {
+  overflow: visible; }
+
+button,
+select {
+  text-transform: none; }
+
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button; }
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0; }
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText; }
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em; }
+
+legend {
+  box-sizing: border-box;
+  color: inherit;
+  display: table;
+  max-width: 100%;
+  padding: 0;
+  white-space: normal; }
+
+/*1. Add the correct display in IE 9-. 2. Add the correct vertical alignment in Chrome, Firefox, and Opera. */
+progress {
+  display: inline-block;
+  vertical-align: baseline; }
+
+/*Remove the default vertical scrollbar in IE. */
+textarea {
+  overflow: auto; }
+
+/*1. Add the correct box sizing in IE 10-. 2. Remove the padding in IE 10-. */
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box;
+  padding: 0; }
+
+/*Correct the cursor style of increment and decrement buttons in Chrome. */
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto; }
+
+/* 1. Correct the odd appearance in Chrome and Safari. 2. Correct the outline style in Safari. */
+[type="search"] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px; }
+
+/*Remove the inner padding and cancel buttons in Chrome and Safari on macOS. */
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+/*1. Correct the inability to style clickable types in iOS and Safari. 2. Change font properties to `inherit` in Safari. */
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit; }
+
+/* Interactive ========================================================================== */
+/*Add the correct display in IE 9-. 1. Add the correct display in Edge, IE, and Firefox. */
+details,
+menu {
+  display: block; }
+
+/*Add the correct display in all browsers. */
+summary {
+  display: list-item; }
+
+/* Scripting ========================================================================== */
+/*Add the correct display in IE 9-. */
+canvas {
+  display: inline-block; }
+
+/*Add the correct display in IE. */
+template {
+  display: none; }
+
+/* Hidden ========================================================================== */
+/*Add the correct display in IE 10-. */
+[hidden] {
+  display: none; }
+
+.post-wrapper {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #d7dff3;
+  border: 2px solid #bdb6b6;
+  border-radius: 5px; }
+  .post-wrapper h2 {
+    font-weight: bold;
+    border-bottom: 1px solid rgba(193, 179, 179, 0.7); }
+    .post-wrapper h2:first-letter {
+      text-transform: uppercase; }
+  .post-wrapper p:last-of-type {
+    color: #2e8e28;
+    font: 20px "arial, Tahoma, sens-serif"; }
+    .post-wrapper p:last-of-type a {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+      font: 20px "arial, Tahoma, sens-serif"; }
+      .post-wrapper p:last-of-type a:hover {
+        color: red; }
+  .post-wrapper .post-edit-panel {
+    margin-left: 10px;
+    list-style-type: none;
+    float: right;
+    clear: both; }
+    .post-wrapper .post-edit-panel li {
+      float: left;
+      margin-left: 5px; }
+
+.text {
+  text-align: justify; }
+  .text:first-letter {
+    text-transform: uppercase;
+    font: 30px "arial, Tahoma, sens-serif";
+    color: #800080; }
+  .text a {
+    color: #180dab;
+    font: 18px "arial, Tahoma, sens-serif";
+    text-decoration: none;
+    cursor: pointer; }
+    .text a:hover {
+      color: #FF0000; }
+
+.date {
+  text-align: right; }
+
+.container-fluid {
+  padding-bottom: 20px;
+  background-color: #e5ebef; }
+
+header, footer {
+  margin: 0;
+  background-color: #bdafb2; }
+  header h1, footer h1 {
+    margin: 0;
+    padding: 10px; }
+  header nav, footer nav {
+    display: inline-block; }
+  header ul, footer ul {
+    margin: 0;
+    padding-left: 10px;
+    list-style-type: none; }
+    header ul li, footer ul li {
+      margin-left: 5px;
+      padding-right: 5px;
+      float: left;
+      border-right: 3px solid #605def; }
+      header ul li:last-child, footer ul li:last-child {
+        border: none; }
+      header ul li a, footer ul li a {
+        font-size: 18px;
+        font-weight: bold;
+        color: #605def; }
+        header ul li a:hover, footer ul li a:hover {
+          text-decoration: none;
+          color: #FF0000; }
+
+h2 a {
+  color: #555f54;
+  text-decoration: none; }
+  h2 a:hover {
+    text-decoration: none;
+    cursor: pointer;
+    color: #FF0000; }
+
+h3 {
+  margin-left: 20px; }
+
+.create-post {
+  display: inline-block;
+  margin: 10px 0 10px 15px;
+  font: bold 20px sans-serif;
+  color: #5c49ec;
+  cursor: pointer; }
+  .create-post:hover {
+    text-decoration: none;
+    color: #FF0000; }
+
+.create-form {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid silver;
+  border-radius: 5px; }
+  .create-form h2 {
+    text-align: center; }
+  .create-form input, .create-form label, .create-form textarea {
+    width: 60%;
+    margin-left: 20%; }
+  .create-form textarea {
+    height: 200px;
+    overflow-y: scroll; }
+  .create-form input:last-of-type {
+    margin-left: 40%;
+    width: 20%;
+    height: 30px; }
+
+.user-list {
+  list-style-type: none; }
+  .user-list h4 {
+    display: inline-block;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(193, 179, 179, 0.7); }
+    .user-list h4:first-letter {
+      text-transform: uppercase; }
+
+.user-detail h3 {
+  margin: 0;
+  text-align: center;
+  font: bold "arial, Tahoma, sens-serif";
+  color: #4033a5; }
+  .user-detail h3:first-letter {
+    text-transform: uppercase; }
+.user-detail ul {
+  margin: 5px;
+  padding: 0;
+  list-style-type: none; }
+  .user-detail ul li {
+    margin: 5px 0;
+    padding: 10px 10px 0 10px;
+    border-bottom: 1px solid silver; }
+    .user-detail ul li:first-letter {
+      text-transform: uppercase; }
+    .user-detail ul li h5 {
+      font: bold 16px "arial, Tahoma, sens-serif";
+      color: #ab2492; }
+.user-detail p:first-letter {
+  text-transform: uppercase; }
+
+/*# sourceMappingURL=styles.css.map */

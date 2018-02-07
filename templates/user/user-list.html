@@ -6,18 +6,24 @@
 {% endblock %}
 
 {% block header %}
-    <h1>Users</h1>
+    {{ block.super }}
 {% endblock %}
 
 {% block content %}
     <div class="container-fluid">
         <div class="row">
             {% if users %}
+                <h3>List all authors</h3>
                 {% for user in users %}
-                    <article class="col-lg-4">
-                        {% include 'user/user.html' %}
-                    </article>
+                    <ul class="user-list">
+                        <li>
+                            <h4>{{ user.username }}</h4>
+                            <p>All posts by this author <a href="{% url 'post:user-detail' user.id %}">see</a></p>
+                        </li>
+                    </ul>
                 {% endfor %}
+            {% else %}
+                <span>Clear here</span>
             {% endif %}
         </div>
     </div>

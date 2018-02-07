@@ -1,0 +1,122 @@
+//import normalize
+@import "../src/normalize"
+
+//Import basic theme css settings
+@import "skins/basic"
+
+//Import Post styles
+@import "post"
+
+.container-fluid
+  padding-bottom: 20px
+  background-color: $container-bgc
+
+header, footer
+  margin: 0
+  background-color: $h1-bgc
+  h1
+    margin: 0
+    padding: 10px
+  nav
+    display: inline-block
+  ul
+    margin: 0
+    padding-left: 10px
+    list-style-type: none
+    li
+      margin-left: 5px
+      padding-right: 5px
+      float: left
+      border-right: 3px solid $nav-a-color
+      &:last-child
+        border: none
+      a
+        font-size: 18px
+        font-weight: bold
+        color: $nav-a-color
+        &:hover
+          text-decoration: none
+          color: $link-color-h
+
+h2
+  a
+    color: $h2-color
+    text-decoration: none
+    &:hover
+      text-decoration: none
+      cursor: pointer
+      color: $link-color-h
+
+h3
+  margin-left: 20px
+
+.create-post
+  display: inline-block
+  margin: 10px 0 10px 15px
+  font: $create-link-f
+  color: $create-link-c
+  cursor: pointer
+  &:hover
+    text-decoration: none
+    color: $link-color-h
+
+.create-form
+  margin-top: 20px
+  margin-bottom: 20px
+  padding: 10px
+  background-color: $form-bg-c
+  border: 1px solid silver
+  border-radius: 5px
+  h2
+    text-align: center
+  input, label, textarea
+    width: 60%
+    margin-left: 20%
+  textarea
+    height: 200px
+    overflow-y: scroll
+  input:last-of-type
+    margin-left: 40%
+    width: 20%
+    height: 30px
+
+.user-list
+  list-style-type: none
+  h4
+    display: inline-block
+    font-weight: bold
+    border-bottom: 1px solid rgba(193, 179, 179, .7)
+    &:first-letter
+      text-transform: uppercase
+
+
+.user-detail
+  h3
+    margin: 0
+    text-align: center
+    font: $user-detail-title-f
+    color: $user-detail-title-c
+    &:first-letter
+      text-transform: uppercase
+  ul
+    margin: 5px
+    padding: 0
+    list-style-type: none
+    li
+      margin: 5px 0
+      padding: 10px 10px 0 10px
+      border-bottom: 1px solid silver
+      &:first-letter
+        text-transform: uppercase
+      h5
+        font: $user-detail-post-title-f
+        color: $user-detail-post-title-c
+
+  p:first-letter
+    text-transform: uppercase
+
+
+
+
+
+

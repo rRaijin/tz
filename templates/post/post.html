@@ -1,9 +1,39 @@
 {% load static %}
 
 {% if post %}
-    <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
-    <p>{{ post.get_short_text }}</p>
-    <p>{{ post.created_date }}</p>
-    <p>{{ post.updated_date }}</p>
-    <p>{{ post.author }}</p>
+    <div class="post-wrapper">
+        <ul class="post-edit-panel">
+            {% if request.user == post.author or request.user.is_staff %}
+                <li>
+                    <a href="{% url 'post:update' post.id %}" data-toggle="tooltip" title="Edit">
+                        <img src="{% static 'media/icons-edit.png' %}" alt="edit">
+                    </a>
+                </li>
+            {% endif %}
+            {% if request.user.is_staff %}
+                <li>
+                    <a href="{% url 'post:delete' post.id %}" data-toggle="tooltip" title="Delete">
+                        <img src="{% static 'media/icons-delete.png' %}" alt="delete">
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+        <h2>
+            <a href="{{ post.get_absolute_url }}">
+                {{ post.title }}
+            </a>
+        </h2>
+        <p class="text">
+            {{ post.get_short_text }}
+            <a href="{{ post.get_absolute_url }}">more</a>
+        </p>
+
+        {% if post.created_date == post.updated_date %}
+            <p class="date">Published: {{ post.created_date }}</p>
+        {% else %}
+            <p class="date">Updated: {{ post.updated_date }}</p>
+        {% endif %}
+
+        <p>Author: {{ post.author }}</p>
+    </div>
 {% endif %}

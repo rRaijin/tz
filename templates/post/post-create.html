@@ -7,16 +7,26 @@
 {% endblock %}
 
 {% block header %}
-    Create post
+    {{ block.super }}
 {% endblock %}
 
 {% block content %}
-    <div class="col-lg-4">
-        <form action="" method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit">
-        </form>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-2">
+                <p>
+                    <a href="/blog/">Return to homepage</a>
+                </p>
+            </div>
+            <div class="col-lg-4 col-lg-offset-2 create-form">
+                <h2>Post form</h2>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{ form }}
+                    <input type="submit">
+                </form>
+            </div>
+        </div>
     </div>
 {% endblock %}
 

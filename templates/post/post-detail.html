@@ -6,9 +6,55 @@
 {% endblock %}
 
 {% block header %}
-    {{ post.title }}
+    {{ block.super }}
 {% endblock %}
 
 {% block content %}
-    {{ post.text }}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-4 col-lg-offset-4">
+                <div class="post-wrapper">
+                    <ul class="post-edit-panel">
+                        {% if request.user == post.author or request.user.is_staff %}
+                            <li>
+                                <a href="{% url 'post:update' post.id %}" data-toggle="tooltip" title="Edit">
+                                    <img src="{% static 'media/icons-edit.png' %}" alt="edit">
+                                </a>
+                            </li>
+                        {% endif %}
+                        {% if request.user.is_staff %}
+                            <li>
+                                <a href="{% url 'post:delete' post.id %}" data-toggle="tooltip" title="Delete">
+                                    <img src="{% static 'media/icons-delete.png' %}" alt="delete">
+                                </a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                    <h2>
+                        <a href="{{ post.get_absolute_url }}">
+                            {{ post.title }}
+                        </a>
+                    </h2>
+                    <p class="text">
+                        {{ post.text }}
+                    </p>
+
+                    {% if post.created_date == post.updated_date %}
+                        <p class="date">Published: {{ post.created_date }}</p>
+                    {% else %}
+                        <p class="date">Updated: {{ post.updated_date }}</p>
+                    {% endif %}
+
+                    <p>
+                        <a href="{% url 'post:user-detail' user.id %}">Author: {{ post.author }}</a>
+                    </p>
+                    <span>Other posts by this author  <a href="{% url 'post:user-detail' post.author.id %}">see</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    {{ block.super }}
 {% endblock %}
